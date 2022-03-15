@@ -1,0 +1,39 @@
+pipeline:
+    name: test1
+    identifier: test1
+    allowStageExecutions: false
+    projectIdentifier: ngdemo
+    orgIdentifier: default
+    tags: {}
+    stages:
+        - stage:
+              name: stage1
+              identifier: stage1
+              description: ""
+              type: Approval
+              spec:
+                  execution:
+                      steps:
+                          - step:
+                                type: ShellScript
+                                name: sayHello
+                                identifier: sayHello
+                                spec:
+                                    shell: Bash
+                                    onDelegate: true
+                                    source:
+                                        type: Inline
+                                        spec:
+                                            script: echo "Hi"
+                                    environmentVariables: []
+                                    outputVariables: []
+                                    executionTarget: {}
+                                timeout: 10m
+                  serviceDependencies: []
+              tags: {}
+              failureStrategies:
+                  - onFailure:
+                        errors:
+                            - Unknown
+                        action:
+                            type: StageRollback
