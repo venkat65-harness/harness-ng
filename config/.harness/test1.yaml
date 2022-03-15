@@ -24,7 +24,7 @@ pipeline:
                                     source:
                                         type: Inline
                                         spec:
-                                            script: echo "Hello World"
+                                            script: echo "Hello Webhook"
                                     environmentVariables: []
                                     outputVariables: []
                                     executionTarget: {}
